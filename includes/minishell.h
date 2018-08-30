@@ -8,4 +8,6 @@
 # define RED	"\x1B[31m"
 # define WHITE	"\x1B[0m"
 # define SHELL " "RED"mario"WHITE"Shell: "
+
+char	**g_envp;
 #endif
