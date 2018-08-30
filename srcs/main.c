@@ -1,26 +1,5 @@
 #include "minishell.h"
 
-void	exit_shell(void)
-{
-	ft_putstr("free\n");
-	exit(0);
-}
-
-void	signal_handler()
-{
-	ft_putstr("bye\n");
-	exit_shell();
-}
-
-void	display_cwd(void)
-{
-	char	*cwd;
-	char	buff[4096 + 1];
-
-	cwd = getcwd(buff, 4096);
-	ft_putstr(cwd);
-}
-
 void	ft_freestrarr(char **arr)
 {
 	int	i;
@@ -34,16 +13,56 @@ void	ft_freestrarr(char **arr)
 	arr = NULL;
 }
 
-// char	**init_env(char **envp)
-// {
-//
-// }
+void	exit_shell(void)
+{
+	ft_freestrarr(g_envp);
+	exit(0);
+}
+
+void	signal_handler()
+{
+	ft_putstr("Out of coins ~ bye!\n");
+	exit_shell();
+}
+
+void	display_cwd(void)
+{
+	char	*cwd;
+	char	buff[4096 + 1];
+
+	cwd = getcwd(buff, 4096);
+	ft_putstr(cwd);
+}
+
+
+void	print_env(void)
+{
+	int i;
+
+	i = -1;
+	while (g_envp[++i])
+		ft_putendl(g_envp[i]);
+}
+void	init_env(char **envp)
+{
+	int	i;
+
+	i = 0;
+	while (envp[i])
+		i++;
+	g_envp = (char **)ft_memalloc(sizeof(char *) * (i + 1));
+	i = -1;
+	while (envp[++i])
+		g_envp[i] = ft_strdup(envp[i]);
+}
 
 void	execute_command(char **command)
 {
 	int i = -1;
 	while (command[++i])
-		ft_printf("%s ", command[i]);
+		if (!ft_strcmp(command[i], "print"))
+			print_env();
+			// ft_printf("%s ", command[i]);
 	ft_putchar('\n');
 }
 
@@ -62,6 +81,11 @@ void	execute_commands(char **commands)
 	}
 }
 
+void	entry(void)
+{
+	ft_printf("Mario - Ready Player One\n");
+}
+
 int		main(int ac, char **av, char **envp)
 {
 	char	*line;
@@ -69,8 +93,8 @@ int		main(int ac, char **av, char **envp)
 
 	(void)ac;
 	(void)av;
-	(void)envp;
-	// init_env(envp);
+	init_env(envp);
+	entry();
 	while (1)
 	{
 		signal(SIGINT, signal_handler);
