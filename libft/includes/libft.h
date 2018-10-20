@@ -6,7 +6,7 @@
 /*   By: mtan <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 17:49:20 by mtan              #+#    #+#             */
-/*   Updated: 2018/03/09 16:37:13 by mtan             ###   ########.fr       */
+/*   Updated: 2018/10/19 15:57:17 by marc             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int					ft_strequ(char const *s1, char const *s2);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
-char				*ft_strjoin(char const *s1, char **s2);
+char				*ft_strjoin(char const *s1, char *s2);
+char				*ft_strjoin_free(char const *s1, char **s2);
 char				*ft_strjoin_rev(char const *s1, char **s2);
 char				*ft_strtrim(char const *s);
 char				*ft_str_toupper(char *str);
@@ -87,6 +88,7 @@ int					ft_iswspace(int c);
 void				ft_putchar(char c);
 void				ft_putnchar(char c, int n);
 void				ft_putstr(char const *s);
+void				ft_putnstr(char const *s, int len);
 void				ft_putendl(char const *s);
 void				ft_putnbr(int n);
 void				ft_putchar_fd(char c, int fd);

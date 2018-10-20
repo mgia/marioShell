@@ -6,7 +6,7 @@
 #    By: mtan <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/21 17:49:03 by mtan              #+#    #+#              #
-#    Updated: 2018/03/08 10:29:52 by mtan             ###   ########.fr        #
+#    Updated: 2018/10/19 15:57:45 by marc             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
-	@echo "$(GREEN)Binary $(LIGHT_GREEN)$(NAME) $(GREEN)created."
+	@echo "$(GREEN)Binary $(LIGHT_GREEN)$(NAME) $(GREEN)created.$(WHITE)"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@mkdir -p $(OBJ_DIR)
