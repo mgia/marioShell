@@ -42,8 +42,8 @@ char	*format_x(t_data *info, va_list args)
 		str = pad_left(&str, info->width - p, '0');
 	if (info->hex && num)
 		str = ((info->specifier == 'x') ?
-				ft_strjoin("0x", &str) :
-				ft_strjoin("0X", &str));
+				ft_strjoin_free("0x", &str) :
+				ft_strjoin_free("0X", &str));
 	if (!(info->minus && info->zero))
 		str = pad_left(&str, info->width, ' ');
 	if (info->specifier == 'X')

@@ -66,6 +66,6 @@ char	*format_p(va_list args)
 	char *str;
 
 	str = ft_itoa_base((unsigned long int)va_arg(args, char *), 16);
-	str = ft_strjoin("0x", &str);
+	str = ft_strjoin_free("0x", &str);
 	return (str);
 }

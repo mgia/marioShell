@@ -26,11 +26,11 @@ char		*format_d(t_data *info, va_list args)
 	if (!info->minus && info->zero && !info->dot)
 		str = pad_left(&str, info->width - p, '0');
 	if (num < 0)
-		str = ft_strjoin("-", &str);
+		str = ft_strjoin_free("-", &str);
 	else if (info->plus)
-		str = ft_strjoin("+", &str);
+		str = ft_strjoin_free("+", &str);
 	else if (info->space)
-		str = ft_strjoin(" ", &str);
+		str = ft_strjoin_free(" ", &str);
 	if (info->dot && !info->precision && !num)
 		str = ft_strdup("");
 	if (info->minus)
@@ -98,7 +98,7 @@ char		*format_o(t_data *info, va_list args)
 	if (!info->minus && info->zero)
 		str = pad_left(&str, info->width, '0');
 	if (info->hex && num)
-		str = ft_strjoin("0", &str);
+		str = ft_strjoin_free("0", &str);
 	if (info->minus)
 		str = pad_right(&str, info->width, ' ');
 	else
