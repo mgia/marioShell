@@ -88,12 +88,10 @@ int		system_call(char **args)
 				return (process(args[0], args));
 			else
 			{
-				ft_printf("mario: Permission denied\n");
+				ft_printf("mario: Permission denied (No exec rights)\n");
 				return (1);
 			}
 		}
 	}
-	else
-		return (check_bins(args));
-	return (0);
+	return (check_bins(args));
 }
