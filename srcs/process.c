@@ -82,8 +82,16 @@ int		system_call(char **args)
 			change_dir(args[0], 0);
 			return (1);
 		}
-		else if (f.st_mode & S_IXUSR)
-			return (process(args[0], args));
+		else if (f.st_mode & S_IFREG)
+		{
+			if (f.st_mode & S_IXUSR)
+				return (process(args[0], args));
+			else
+			{
+				ft_printf("mario: Permission denied\n");
+				return (1);
+			}
+		}
 	}
 	else
 		return (check_bins(args));
