@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   minishell.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mtan <marvin@42.fr>                        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/11/14 15:13:33 by mtan              #+#    #+#             */
+/*   Updated: 2018/11/14 15:14:30 by mtan             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
@@ -10,7 +22,6 @@
 # define SHELL " "RED"mario"WHITE"Shell: "
 
 char	**g_envp;
-#endif
 
 /*
 **	Fork functions
@@ -29,7 +40,6 @@ void	cd(char **args);
 void	echo(char **args);
 void	set_env(char **arg);
 void	unset_env(char **args);
-
 
 /*
 **	Environment Management functions
@@ -52,3 +62,5 @@ void	signal_handler(int n);
 void	ft_freestrarr(char **arr);
 void	exit_shell(void);
 void	mario(void);
+
+#endif
