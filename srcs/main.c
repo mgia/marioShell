@@ -32,7 +32,6 @@ void	execute_command(char **command)
 		mario();
 	else if (!system_call(command))
 		ft_printf("mario: Command not found: %s\n", command[0]);
-
 }
 
 void	execute_commands(char **commands)

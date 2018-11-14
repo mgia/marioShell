@@ -45,7 +45,7 @@ static void	echo_arg(char *arg)
 
 void		echo(char **args)
 {
-	int 	nl;
+	int		nl;
 	int		i;
 
 	if (!args || !*args)
